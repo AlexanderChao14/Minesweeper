@@ -1,0 +1,111 @@
+/* 
+Alexnader Chao Assignment 2
+UCID: 30046585
+CSS Page
+*/
+
+#btnContainer{
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+}
+
+#header{
+    width: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 6;
+    grid-row: 1;
+}
+
+#smallButton{
+    display:grid;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    border: black 2px solid;
+}
+
+#medButton{
+    display:grid;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    border: black 2px solid;
+}
+
+#largeButton{
+    display:grid;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    border: black 2px solid;
+}
+
+#stat1{
+    display:grid;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    border: black 2px solid;
+    padding-left: 25px; 
+    padding-right: 25px;
+}
+#stat2{
+    display:grid;
+    grid-column-start: 5;
+    grid-column-end: 5;  
+    border: black 2px solid;
+    padding-left: 25px; 
+    padding-right: 25px;
+}
+
+#gamestatus{
+    display:grid;
+    grid-column-start: 6;
+    grid-column-end: 6;  
+    border: black 2px solid;
+    padding-left: 25px; 
+    padding-right: 25px;
+}
+
+.greenbut{
+    background-color: #A2D149;
+    border-color:gray;
+}
+
+.uncover{
+    background-color: brown;
+    border-color:gray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26pt;
+}
+
+.mine{
+    background-color: red;
+    border-color: black;
+    background-image: url("mine.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.win{
+    font-size:16pt;
+    text-decoration: green underline;
+    color: green;
+}
+
+.lose{
+    font-size:16pt;
+    text-decoration: red underline;
+    color: red;
+}
+
+.flag{
+    background-color: #A2D149;
+    border-color:gray;
+    background-image: url("flag.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+}
