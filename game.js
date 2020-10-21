@@ -1,6 +1,5 @@
 //Alexnader Chao Assignment 2
 //UCID: 30046585
-//Javascript page
 
 //From Pavols Game Engine
 let MSGame = (function(){
