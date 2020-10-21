@@ -188,6 +188,7 @@ const med = document.getElementById('medButton');
 const large = document.getElementById('largeButton');
 let array=[[]];
 
+//Timer code from Emmanuels tutorial help
 let t = 0;
 let timer = null;
 
@@ -209,6 +210,8 @@ function start(){
 
 make();
 
+//base Idea of generating the grid of button depending size from Emmanuels tutorial help
+//Function that makes the grid depending on the size.
 function make(ncols = 10, nrows = 8, bomb = 10){
   const nbuttons = nrows*ncols
   let buttonSize = container.clientWidth / ncols;
@@ -265,13 +268,11 @@ function make(ncols = 10, nrows = 8, bomb = 10){
 
     container.append(button);
   }
-  
-    
-
   }
   game.init(nrows, ncols,bomb);
 }
 
+//Update the UI grid when called
 function updater(){
   const update = game.getRendering();
   update.forEach((updateRow, indexRow) => {
@@ -311,7 +312,7 @@ function updater(){
   
 }
 
-
+//Check if the size is going to be changed
 small.addEventListener('click',function(e){
   make(10,8,10);  
   stop();
