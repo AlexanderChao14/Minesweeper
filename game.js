@@ -195,33 +195,48 @@ let timer = null;
 function stop(){
   if(timer){
     window.clearInterval(timer);
-    timer = 0;
-    t = 0;
-    document.getElementById("stat1").innerHTML = "Timer: ";
+    let finalTime = t.toString(); 
+    document.getElementById("stat1").innerHTML = "Time: " +finalTime;
   }
 }
 
 function start(){
+  timer = 0;
+  t = 0;
   timer = setInterval(function(){
     t++;
-    document.getElementById("stat1").innerHTML = ('000' + t).substr(-3);
+    let time =('000' + t).substr(-3);
+    document.getElementById("stat1").innerHTML = "Time: "+time;
   }, 1000);
 }
 
+let flags = 10;
+
 make();
 
-//base Idea of generating the grid of button depending size from Emmanuels tutorial help
+//Base idea of generating the grid of button depending size from Emmanuels tutorial help
 //Function that makes the grid depending on the size.
 function make(ncols = 10, nrows = 8, bomb = 10){
   const nbuttons = nrows*ncols
   let buttonSize = container.clientWidth / ncols;
   
+
   stop();  
 
   start();
 
-  
+  if(ncols == 18){
+    flags = 40;
+  }
+  else if(ncols == 24){
+    flags = 99;
+  }else{
+    flags = 10;
+  }
 
+  let startFlags = flags.toString();
+  document.getElementById("stat2").innerHTML = "Flags: " + startFlags; 
+  
   array.forEach(button => {
     button.forEach(elem => {
       elem.remove();
@@ -242,6 +257,8 @@ function make(ncols = 10, nrows = 8, bomb = 10){
       button.dataset.key = `${i},${j}`;
       button.classList.add("greenbut");
       array[i][j] = button;
+
+      //Uncover function and updates the board
       button.addEventListener('click', function(e){
         if(e.target){
           let coord = e.target.dataset.key;
@@ -254,12 +271,16 @@ function make(ncols = 10, nrows = 8, bomb = 10){
         }  
       });
 
+      //Right click flag function and updates board and status
       button.addEventListener('contextmenu', function(e){
         if(e.target){
           let coord = e.target.dataset.key;
           const[row, col] =coord.split(",").map(el =>{
             return Number.parseInt(el, 10);
           });
+          flags--;
+          let currentFlags = flags.toString();
+          document.getElementById("stat2").innerHTML = "Flags: " + currentFlags; 
           game.mark(row,col);
           updater();
           
@@ -272,7 +293,7 @@ function make(ncols = 10, nrows = 8, bomb = 10){
   game.init(nrows, ncols,bomb);
 }
 
-//Update the UI grid when called
+//Updates the UI grid when called and uses Pavols game engine to check
 function updater(){
   const update = game.getRendering();
   update.forEach((updateRow, indexRow) => {
@@ -302,6 +323,7 @@ function updater(){
   const status = game.getStatus();
   let statusHead = document.getElementById("gamestatus");
   if(status.done && status.exploded){
+    stop();
     statusHead.innerHTML = "You Lose";
     statusHead.classList.add("lose");
   } 
@@ -312,7 +334,7 @@ function updater(){
   
 }
 
-//Check if the size is going to be changed
+//Check if the size is going to be changed by button press
 small.addEventListener('click',function(e){
   make(10,8,10);  
   stop();

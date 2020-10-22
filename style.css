@@ -10,6 +10,7 @@ UCID: 30046585
     display: grid;
 }
 
+/*id classes for header button area*/
 #header{
     width: 700px;
     margin: 0 auto;
@@ -39,6 +40,7 @@ UCID: 30046585
     border: black 2px solid;
 }
 
+/*Timer css*/
 #stat1{
     display:grid;
     grid-column-start: 4;
@@ -47,6 +49,8 @@ UCID: 30046585
     padding-left: 25px; 
     padding-right: 25px;
 }
+
+/*Flag amount css*/
 #stat2{
     display:grid;
     grid-column-start: 5;
@@ -56,6 +60,7 @@ UCID: 30046585
     padding-right: 25px;
 }
 
+/*Game status css*/
 #gamestatus{
     display:grid;
     grid-column-start: 6;
@@ -65,11 +70,13 @@ UCID: 30046585
     padding-right: 25px;
 }
 
+/*for covered buttons*/
 .greenbut{
     background-color: #A2D149;
     border-color:gray;
 }
 
+/*for uncovered buttons*/
 .uncover{
     background-color: brown;
     border-color:gray;
@@ -77,6 +84,7 @@ UCID: 30046585
     font-size: 26pt;
 }
 
+/*css for mines*/
 .mine{
     background-color: red;
     border-color: black;
@@ -87,18 +95,21 @@ UCID: 30046585
     background-position-y: center;
 }
 
+/*css for win text*/
 .win{
     font-size:16pt;
     text-decoration: green underline;
     color: green;
 }
 
+/*css for lose text*/
 .lose{
     font-size:16pt;
     text-decoration: red underline;
     color: red;
 }
 
+/*css for flags*/
 .flag{
     background-color: #A2D149;
     border-color:gray;
